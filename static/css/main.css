@@ -147,7 +147,7 @@ a {
     ),
     url(../images/dr_strange.jpeg);
   background-size: cover;
-  position: relative; */
+  position: relative;
 }
 .drstrange-text {
   display: flex;
@@ -165,9 +165,9 @@ a {
       rgba(114, 26, 11, 0.7),
       rgba(10, 0, 143, 0.6)
     ),
-    url(../images/dr_strange.jpeg);
+    url(../images/ironman.jpeg);
   background-size: cover;
-  position: relative; */
+  position: relative;
 }
 .ironman-text {
   display: flex;
@@ -175,4 +175,136 @@ a {
   padding-top: 20%;
   color: white;
   position: relative;
+}
+
+/* Thor image with Hero image / header image and Text  */
+.thor-banner{
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(114, 26, 11, 0.7),
+      rgba(10, 0, 143, 0.6)
+    ),
+    url(../images/thor.jpeg);
+  background-size: cover;
+  background-position: 0 50%;
+  position: relative;
+}
+.thor-text {
+  display: flex;
+  justify-content: center;
+  padding-top: 20%;
+  color: white;
+  position: relative;
+}
+
+/* Hawkeye  image with Hero image / header image and Text  */
+.hawkeye-banner{
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(114, 26, 11, 0.7),
+      rgba(10, 0, 143, 0.6)
+    ),
+    url(../images/hawkeye.jpeg);
+  background-size: cover;
+}
+.hawkeye-text{
+  display: flex;
+  justify-content: center;
+  padding-top: 20%;
+  color: white;
+  position: relative;
+}
+
+
+/* captain america  image with Hero image / header image and Text  */
+.captain-banner{
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(114, 26, 11, 0.7),
+      rgba(10, 0, 143, 0.6)
+    ),
+    url(../images/captain_america.jpeg);
+  background-size: cover;
+}
+.captain-text {
+  display: flex;
+  justify-content: center;
+  padding-top: 20%;
+  color: white;
+  position: relative;
+}
+
+/* hulk  image with Hero image / header image and Text  */
+.hulk-banner{
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(114, 26, 11, 0.7),
+      rgba(10, 0, 143, 0.6)
+    ),
+    url(../images/hulk.jpeg);
+  background-size: cover;
+}
+.hulk-text {
+  display: flex;
+  justify-content: center;
+  padding-top: 20%;
+  color: white;
+  position: relative;
+}
+
+
+.phone{
+  display: flex;
+  justify-content: center;
+  color: white;
+  position: relative;
+}
+
+.register-text{
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+  color: white;
+}
+
+form{
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  position: relative;
+}
+
+.name,.email{
+  padding: 0 5px 0 5px;
+  margin: 0 5px 0 5px;
+  display: inline-block;
+  border-radius: 10px;
+  border: 0;
+}
+
+.submit{
+  padding: 0 5px;
+  margin: 0 5px;
+  border-radius: 10px;
+  background-color: white;
+  border: 2px solid #34495e;
+}
+.submit:hover{
+  background-color: #34495e;
+
+}
+
+.register-banner{
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(114, 26, 11, 0.7),
+      rgba(10, 0, 143, 0.6)
+    ),
+    url(../images/captain_america1.jpeg);
+  background-size: cover;
 }
