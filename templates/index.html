@@ -15,8 +15,10 @@
 
 <body>
     {% include 'nav.html' %}
-    {% block content %}
-    {% endblock %}
+    <header class='banner'>
+        {% block content %}
+        {% endblock %}
+    </header>
 </body>
 
 </html>

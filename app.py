@@ -1,6 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, flash, redirect
+from forms import RegistrationForm
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '1438789921yuseh78yter817'
 
 
 @app.route("/")
@@ -43,9 +45,20 @@ def hulk():
     return render_template('hulk.html')
 
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    return render_template('register.html')
+    form = RegistrationForm()
+    # creates instance of the form
+    if form.validate_on_submit():
+        flash(f"Account created for {form.name.data}!", 'success')
+        name = form.name.data
+        address = form.address.data
+        phone = form.phone.data
+        print(name, address, phone)
+        return redirect(url_for('index'))
+    else:
+        flash('Invalid input', 'danger')
+    return render_template('register.html', title='Register', form=form)
 
 
 if __name__ == "__main__":

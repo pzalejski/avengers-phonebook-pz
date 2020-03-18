@@ -270,13 +270,13 @@ a {
   padding-top: 10%;
   color: white;
 }
-
+/* 
 form{
   display: flex;
   justify-content: center;
   padding-top: 1rem;
   position: relative;
-}
+} */
 
 .name,.email{
   padding: 0 5px 0 5px;
@@ -298,13 +298,10 @@ form{
 
 }
 
-.register-banner{
-  height: 95vh;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(114, 26, 11, 0.7),
-      rgba(10, 0, 143, 0.6)
-    ),
-    url(../images/captain_america1.jpeg);
-  background-size: cover;
+legend,.btn,.form-control-label,.text{
+  color: white;
+}
+
+.ml-2:hover{
+  text-decoration: none;
 }
