@@ -1,3 +1,6 @@
 env 
 __pycache__
 .vscode
+migrations
+app.db
+config.py

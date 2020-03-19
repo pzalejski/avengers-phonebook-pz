@@ -107,7 +107,7 @@ a {
     ),
     url(../images/avengers.jpeg);
   background-size: cover;
-  position: relative; */
+  position: relative; 
 }
 .header-text {
   display: flex;
@@ -127,7 +127,7 @@ a {
     ),
     url(../images/blackwidow.jpeg);
   background-size: cover;
-  position: relative; */
+  position: relative;
 }
 .blackwidow-text {
   display: flex;
