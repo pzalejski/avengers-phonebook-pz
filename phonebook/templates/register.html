@@ -4,6 +4,8 @@
 <main role="main" class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
+            <div class="content-section">
+            {% if request.method =='POST' %}
             {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
             {% for category, message in messages %}
@@ -13,7 +15,7 @@
             {%  endfor %}
             {% endif %}
             {% endwith %}
-            <div class="content-section">
+            {% endif %}
                 <form action="" method="POST">
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
@@ -70,7 +72,7 @@
             </div>
             <div class="border-top pt-3">
                 <small class="text">
-                    Already have an account?<a class="ml-2" href="#">Sign In</a></small>
+                    Already have an account?<a class="ml-2" href="{{ url_for('login') }}">Sign In</a></small>
             </div>
         </div>
     </div>
