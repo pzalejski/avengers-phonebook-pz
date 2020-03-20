@@ -29,4 +29,19 @@ class User(db.Model,UserMixin):
         self.pw_hash = generate_password_hash(phone)
         return self.pw_hash
 
-    
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200))
+    address = db.Column(db.String(3000), nullable=False)
+    date_created = db.Column(
+        db.DateTime, nullable=False, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __init__(self, name, address, user_id):
+        self.name = name
+        self.address = address
+        self.user_id = user_id
+
+    def __repr__(self):
+        return f"The contact info is for: {self.name} and the user is {self.user_id}"

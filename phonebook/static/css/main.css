@@ -31,7 +31,9 @@ a {
   font-size: 1.45em;
   font-weight: bold;
 }
-
+.logo a{
+  color:#34495e;
+}
 .main-nav {
   margin-top: 5px;
 }
@@ -56,20 +58,20 @@ a {
 
 .logo a:hover {
   text-decoration: none;
-  color: white;
+  color: #718daa;
 }
 
 .header {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  border: 1px solid #a2a2a2;
-  background-color: rgb(90, 0, 0);
+  border: 0px solid #a2a2a2;
+  background-color:rgba(0, 0, 0, 0.863);
   -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 9px 14px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, .75);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 /* Media Query for Navbar */
@@ -99,13 +101,14 @@ a {
 
 /* Banner image with Hero image / header image and Text  */
 .banner {
-  height: 95vh;
+  height:95vh;
+  width: auto;
   background-image: linear-gradient(
       to right bottom,
       rgba(114, 26, 11, 0.7),
       rgba(10, 0, 143, 0.6)
     ),
-    url(../images/avengers.jpeg);
+    url(../images/nasa-Q1p7bh3SHj8-unsplash_edited.jpg);
   background-size: cover;
   position: relative; 
 }
@@ -116,146 +119,6 @@ a {
   color: white;
   position: relative;
 }
-
-/* BlackWidow image with Hero image / header image and Text  */
-.blackwidow-banner{
-  height: 95vh;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(114, 26, 11, 0.7),
-      rgba(10, 0, 143, 0.6)
-    ),
-    url(../images/blackwidow.jpeg);
-  background-size: cover;
-  position: relative;
-}
-.blackwidow-text {
-  display: flex;
-  justify-content: center;
-  padding-top: 20%;
-  color: white;
-  position: relative;
-}
-
-/* DrStrange image with Hero image / header image and Text  */
-.drstrange-banner{
-  height: 95vh;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(114, 26, 11, 0.7),
-      rgba(10, 0, 143, 0.6)
-    ),
-    url(../images/dr_strange.jpeg);
-  background-size: cover;
-  position: relative;
-}
-.drstrange-text {
-  display: flex;
-  justify-content: center;
-  padding-top: 20%;
-  color: white;
-  position: relative;
-}
-
-/* Ironman image with Hero image / header image and Text  */
-.ironman-banner{
-  height: 95vh;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(114, 26, 11, 0.7),
-      rgba(10, 0, 143, 0.6)
-    ),
-    url(../images/ironman.jpeg);
-  background-size: cover;
-  position: relative;
-}
-.ironman-text {
-  display: flex;
-  justify-content: center;
-  padding-top: 20%;
-  color: white;
-  position: relative;
-}
-
-/* Thor image with Hero image / header image and Text  */
-.thor-banner{
-  height: 95vh;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(114, 26, 11, 0.7),
-      rgba(10, 0, 143, 0.6)
-    ),
-    url(../images/thor.jpeg);
-  background-size: cover;
-  background-position: 0 50%;
-  position: relative;
-}
-.thor-text {
-  display: flex;
-  justify-content: center;
-  padding-top: 20%;
-  color: white;
-  position: relative;
-}
-
-/* Hawkeye  image with Hero image / header image and Text  */
-.hawkeye-banner{
-  height: 95vh;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(114, 26, 11, 0.7),
-      rgba(10, 0, 143, 0.6)
-    ),
-    url(../images/hawkeye.jpeg);
-  background-size: cover;
-}
-.hawkeye-text{
-  display: flex;
-  justify-content: center;
-  padding-top: 20%;
-  color: white;
-  position: relative;
-}
-
-
-/* captain america  image with Hero image / header image and Text  */
-.captain-banner{
-  height: 95vh;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(114, 26, 11, 0.7),
-      rgba(10, 0, 143, 0.6)
-    ),
-    url(../images/captain_america.jpeg);
-  background-size: cover;
-}
-.captain-text {
-  display: flex;
-  justify-content: center;
-  padding-top: 20%;
-  color: white;
-  position: relative;
-}
-
-/* hulk  image with Hero image / header image and Text  */
-.hulk-banner{
-  height: 95vh;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(114, 26, 11, 0.7),
-      rgba(10, 0, 143, 0.6)
-    ),
-    url(../images/hulk.jpeg);
-  background-size: cover;
-}
-.hulk-text {
-  display: flex;
-  justify-content: center;
-  padding-top: 20%;
-  color: white;
-  position: relative;
-}
-
 
 .phone{
   display: flex;
@@ -298,10 +161,14 @@ form{
 
 }
 
-legend,.btn,.form-control-label,.text{
+legend,.btn,.form-control-label,.text,.user-info{
   color: white;
 }
 
 .ml-2:hover{
   text-decoration: none;
+}
+
+.user_current_info{
+  color: white;
 }

@@ -20,7 +20,7 @@
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
                         <legend class="border-bottom mb-4">
-                            Join Today
+                            Update Information:
                         </legend>
                         <div class="form-group">
                             {{ form.name.label(class="form-control-label") }}
@@ -80,15 +80,12 @@
                         </div>
                     </fieldset>
                     <div class="form-group">
-                        {{ form.submit(class='btn btn-ouwtline-info')}}
+                        {{ form.submit2(class='btn btn-ouwtline-info')}}
                     </div>
                 </form>
-            </div>
-            <div class="border-top pt-3">
-                <small class="text">
-                    Already have an account?<a class="ml-2" href="{{ url_for('login') }}">Sign In</a></small>
             </div>
         </div>
     </div>
 </main>
-{% endblock content %}
+
+{% endblock %}

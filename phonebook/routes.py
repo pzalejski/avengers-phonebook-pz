@@ -1,8 +1,8 @@
 from phonebook import app, db
 from flask import render_template, redirect, request, flash, url_for
 
-from phonebook.forms import RegistrationForm, LoginForm
-from phonebook.models import User, check_password_hash
+from phonebook.forms import UserForm, LoginForm, PostForm
+from phonebook.models import User, check_password_hash, Post
 
 from flask_login import login_required, login_user, current_user, logout_user
 
@@ -11,45 +11,9 @@ from flask_login import login_required, login_user, current_user, logout_user
 def index():  # fucntions that are called in the url_for('')
     return render_template("home.html")
 
-
-@app.route("/blackwidow")
-def blackwidow():
-    return render_template('blackwidow.html')
-
-
-@app.route("/dr-strange")
-def dr_strange():
-    return render_template('dr_strange.html')
-
-
-@app.route("/ironman")
-def ironman():
-    return render_template('ironman.html')
-
-
-@app.route("/thor")
-def thor():
-    return render_template('thor.html')
-
-
-@app.route("/hawkeye")
-def hawkeye():
-    return render_template('hawkeye.html')
-
-
-@app.route('/captain-america')
-def captain_america():
-    return render_template('captain_america.html')
-
-
-@app.route('/hulk')
-def hulk():
-    return render_template('hulk.html')
-
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegistrationForm()
+    form = UserForm()
     # creates instance of the form
     if request.method =='POST' and form.validate():
         flash(f"Account created for {form.name.data}!", 'success')
@@ -84,8 +48,87 @@ def login():
         return redirect(url_for('index'))
     return render_template('login.html', title='Login', form=loginform)
 
+@app.route('/create', methods=['GET', 'POST'])
+@login_required
+def create_contact():
+    form = PostForm()
+    if request.method == 'POST' and form.validate():
+        name = form.name.data
+        address = form.address.data
+        user_id = current_user.id
+        print(name, address)
+        contact = Post(name, address, user_id)
+        
+        db.session.add(contact)
+        db.session.commit()
+        return redirect(url_for('create_contact'))
+    else:
+        flash('Please make sure all fields are filled out.','danger')
+    return render_template('contactform.html', form = form)
+
 @app.route('/logout')
 def logout():
     logout_user()
     flash(f'Sucessfully logged out!', 'success')
     return redirect(url_for('index'))
+
+
+@app.route('/phonebook/<int:post_id>')
+# used to look up post id
+def phonebook_detail(post_id):
+    post = Post.query.get_or_404(post_id)
+    return render_template('phonebook_detail.html', post=post)
+
+@app.route('/phonebook/update/<int:post_id>', methods=['GET', 'POST', 'PUT'])
+@login_required
+def phonebook_update(post_id):
+    postform=PostForm()
+    post = Post.query.get_or_404(post_id)
+    if request.method == 'POST' and postform.validate():
+
+        #Todo use postform for update
+        name = postform.name.data
+        address = postform.address.data
+        user_id = current_user.id
+        print(name,address,user_id)
+
+        post.name = name
+        post.address = address
+        post.user_id = user_id
+
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('phonebook_update.html', form=postform)
+    
+@app.route('/phonebook/delete/<int:post_id>', methods=['POST'])
+@login_required
+def phonebook_delete(post_id):
+    post = Post.query.get_or_404(post_id)
+    db.session.delete(post)
+    db.session.commit()
+    return redirect(url_for('home'))
+
+
+@app.route('/user/<int:user_id>')
+def user_detail(user_id):
+    user = User.query.get_or_404(user_id)
+    return render_template('user_detail.html', user=user)
+
+@app.route('/user/update/<int:user_id>', methods=['GET','POST'])
+@login_required
+def user_update(user_id):
+    updateuser = UserForm()
+    user = User.query.get_or_404(user_id)
+    if request.method == 'POST' and updateuser.validate():
+        name = updateuser.name.data
+        address = updateuser.address.data
+        phone= updateuser.phone.data
+
+        user.name = name
+        user.address = address
+        user.phone = user.set_password(phone)
+
+
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('user_update.html', form=updateuser)

@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="content-section">
+            {% if request.method =='POST' %}
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{category}}">
+                {{ message }}
+            </div>
+            {%  endfor %}
+            {% endif %}
+            {% endwith %}
+            {% endif %}
+                <form action="" method="POST">
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">
+                            Entry Detail
+                        </legend>
+                        <ul>
+                        <li class="user_current_info"><p>
+                            <ul>Current Name:
+                            <label for=""><li>{{user.name}}</li></label>
+                            <br>
+                            <ul>Current Address:
+                            <label for=""><li>{{user.address}}</li></label>
+                            </ul>
+                        </p>
+                        <p>
+                            If you would like to update your information, plase press 'Update'
+                        </p>
+                    </ul>
+                    
+                    </fieldset>
+
+                </form>
+            </div>
+            <div class="border-bottom pb-3">
+                <a class="btn bt-outline-info" href="{{ url_for('user_update', user_id=user.id) }}">Update</a>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

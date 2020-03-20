@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>What would you like to update?</h2>
+    <p>Update Contact Information</p>
+
+    <form action="" method="POST">
+        {{ form.hidden_tag()}}
+        <div class="form-group">
+
+            <fieldset>
+                {{form.name.label}}
+                {{form.name(class='form-control', placeholder='name')}}
+            </fieldset>
+            <fieldset>
+                {{form.address.label}}
+                {{form.address(class='form-control',placeholder='Update Content')}}
+            </fieldset>
+            {{form.submit(class='btn btn-success')}}
+        </div>
+    </form>
+</div>
+
+{% endblock %}

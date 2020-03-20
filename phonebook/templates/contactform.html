@@ -1,26 +1,29 @@
 {% extends 'index.html' %}
 
 {% block content %}
+
 <main role="main" class="container">
     <div class="row">
+        <div class="calert alert-{{category}}">
+        {% if request.method =='POST' %}
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+        
+                        {{ message }}
+
+                    {%  endfor %}
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+        </div>
         <div class="col-md-6 offset-md-3">
             <div class="content-section">
-            {% if request.method =='POST' %}
-            {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-            {% for category, message in messages %}
-            <div class="alert alert-{{category}}">
-                {{ message }}
-            </div>
-            {%  endfor %}
-            {% endif %}
-            {% endwith %}
-            {% endif %}
                 <form action="" method="POST">
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
                         <legend class="border-bottom mb-4">
-                            Join Today
+                            Phonebook Entry
                         </legend>
                         <div class="form-group">
                             {{ form.name.label(class="form-control-label") }}
@@ -50,45 +53,14 @@
                             {{ form.address(class="form-control form-control-lg") }}
                             {% endif %}
                         </div>
-                        <div class="form-group">
-                            {{ form.phone.label(class="form-control-label") }}
-
-                            {% if form.phone.errors %}
-                            {{ form.phone(class="form-control form-control-lg is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.phone.errors %}
-                                <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                            {% else %}
-                            {{ form.phone(class="form-control form-control-lg") }}
-                            {% endif %}
-                        </div>
-                        <div class="form-group">
-                            {{ form.confirm_phone.label(class="form-control-label") }}
-
-                            {% if form.confirm_phone.errors %}
-                            {{ form.confirm_phone(class="form-control form-control-lg is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.confirm_phone.errors %}
-                                <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                            {% else %}
-                            {{ form.confirm_phone(class="form-control form-control-lg") }}
-                            {% endif %}
-                        </div>
                     </fieldset>
                     <div class="form-group">
                         {{ form.submit(class='btn btn-ouwtline-info')}}
                     </div>
                 </form>
             </div>
-            <div class="border-top pt-3">
-                <small class="text">
-                    Already have an account?<a class="ml-2" href="{{ url_for('login') }}">Sign In</a></small>
-            </div>
         </div>
     </div>
 </main>
-{% endblock content %}
+
+{% endblock %}

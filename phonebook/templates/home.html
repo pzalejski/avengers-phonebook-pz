@@ -1,16 +1,25 @@
 {% extends 'index.html' %}
 {% block content %}
 <!-- header image/ hero image-->
-<header class='banner'>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-    {% for category, message in messages %}
-    <div class="alert alert-{{category}}">
-        {{ message }}
-    </div>
-    {%  endfor %}
-    {% endif %}
-    {% endwith %}
-    <h1 class='header-text'>Please select an Avenger</h1>
+<header class="banner">
+    <div class="calert alert-{{category}}">
+
+    <h1 class='header-text'>Welcome</h1>
 </header>
+
+    {% for post in posts %}
+
+<div class="container">
+    <h3>
+        <a href="{{url_for('phonebook_detail', post_id = post.id)}}">{{ post.name }}</a>
+    </h3>
+    <p>
+        {{ post.address }}
+    </p>
+    <button class="btn btn">
+        <small><a href="{{url_for('phonebook_update',post_id = post.id)}}">Update Post</a></small></button>
+</div>
+    {% endfor %}
+
+
 {% endblock %}

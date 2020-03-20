@@ -4,15 +4,11 @@
     </h1>
     <ul class="main-nav">
         <li><a href="{{ url_for('index') }}">Home</a></li>
-        <li><a href="{{ url_for('blackwidow') }}">Black Widow</a></li>
-        <li><a href="{{ url_for('dr_strange') }}">Dr. Strange</a></li>
-        <li><a href="{{ url_for('ironman') }}">Ironman</a></li>
-        <li><a href="{{ url_for('thor') }}">Thor</a></li>
-        <li><a href="{{ url_for('hawkeye') }}">Hawkeye</a></li>
-        <li><a href="{{ url_for('captain_america') }}">Captain America</a></li>
-        <li><a href="{{ url_for('hulk') }}">Hulk</a></li>
+        <li><a href="{{url_for('create_contact')}}">Create Phonebook Entry</a></li>
+        <li><a href=""></a></li>
         {% if current_user.is_authenticated %}
         <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        <li><a href="{{url_for('user_detail', user_id=current_user.id)}}">Profile</a></li>
         {% else %}
         <li><a href="{{ url_for('login') }}">Login</a></li>
         {% endif %}
